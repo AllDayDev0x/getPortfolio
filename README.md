@@ -61,7 +61,7 @@ And passed 2 callback functions(`processData` and `getPortfolio`) during the csv
 
 Handled the processing data.
 
-There is one export function called `processData` in `process_data.js` file.
+There is one export function called `processData` in `processData.js` file.
 
 This function is used as callback function in `parseCSV` function, will be called every lines of csv file is read.
 
