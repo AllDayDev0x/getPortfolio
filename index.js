@@ -1,11 +1,9 @@
 import yargs from 'yargs';
 import dotenv from 'dotenv'
 import parseCSV from './libs/parseCSV.js';
+import processData from './libs/process_data.js';
 
-let result = {
-  balances: [],
-  portfolio: [],
-}
+let result =[];
 
 dotenv.config();
 
@@ -18,9 +16,10 @@ const main = () => {
       if (row === undefined || row.length < 4) {
         return;
       }
-      console.log(row)
+      processData(row, token, date, result)
     },
     () => {
+      console.table(result)
       console.log('finished')
     }
   )
