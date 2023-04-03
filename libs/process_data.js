@@ -11,15 +11,20 @@ const processData = (data, token, date, result) => {
   if (date && Number(date) < _timestamp) {
     return;
   }
+  let tokenIndex = result.findIndex((val) => val.token.toLowerCase() == _token.toLowerCase());
+  if (tokenIndex == -1) {
+    tokenIndex = result.length;
+    result.push({token: _token});
+  }
 
-  let _balance = result[_token]?.balance ? Number(result[_token].balance) : 0.0;
+  let _balance = result[tokenIndex].balance ? Number(result[tokenIndex].balance) : 0.0;
   if (_tx_type == 'DEPOSIT') {
     _balance += _amount;
   } else if (_tx_type == 'WITHDRAWAL') {
     _balance -= _amount;
   }
 
-  result[_token] ={balance: _balance};
+  result[tokenIndex].balance =  _balance;
 };
 
 export default processData;

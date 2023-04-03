@@ -23,10 +23,9 @@ const getExchangeRateFromCC = async (token, date) => {
 };
 
 export const getPortfolio = async (date, result) => {
-  let _tokens = Object.keys(result);
 
-  await Promise.all(_tokens.map((_token) => new Promise(async (resolve) => {
-        let _rateObj = await getExchangeRateFromCC(_token, date);
+  await Promise.all(result.map((data, index) => new Promise(async (resolve) => {
+        let _rateObj = await getExchangeRateFromCC(data.token, date);
     
         if (date) {
           _rateObj = _rateObj[_token];
@@ -34,7 +33,7 @@ export const getPortfolio = async (date, result) => {
     
         const _rate = _rateObj['USD'];
     
-        result[_token].portfolio = (_rate * result[_token].balance).toPrecision(15);
+        result[index].portfolio = (_rate * result[index].balance).toPrecision(15);
         resolve();
   })))
 };
