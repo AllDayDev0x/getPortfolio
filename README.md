@@ -10,7 +10,7 @@ Copy .env.example file and paste as .env file, and then input [cryptocompare](ht
 After that, run the app with below command
   
   ```sh
-  node index.js --token eth --date 1571964779
+  node index.js --token eth --date 2023-03-31
   ```
 
 ## Project Structure
