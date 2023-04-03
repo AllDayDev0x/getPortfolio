@@ -24,9 +24,9 @@ The general structure looks like this:
 ├── storage
 │   └── transactions.csv
 ├── libs
-│   ├── getPortfolio.js
+│   ├── get_portfolio.js
 │   ├── parseCSV.js
-│   └── processData.js
+│   └── process_data.js
 ├── package.json
 ├── README.md
 └── index.js
@@ -61,7 +61,7 @@ And passed 2 callback functions(`processData` and `getPortfolio`) during the csv
 
 Handled the processing data.
 
-There is one export function called `processData` in `processData.js` file.
+There is one export function called `processData` in `process_data.js` file.
 
 This function is used as callback function in `parseCSV` function, will be called every lines of csv file is read.
 
@@ -72,3 +72,16 @@ Once the one line is read from csv file, parse the data with given token and dat
 Get the exchange rate of given token and date from [cryptocompare](https://min-api.cryptocompare.com/), used `fetch` module for HTTP Get Request to [cryptocompare](https://min-api.cryptocompare.com/)
 
 After getting the exchange rate, get the portfolio of token with total balance of token which is calculated by `processData` function.
+
+
+## Result
+The result is like bellow
+```
+┌─────────┬────────────────────┬─────────────────────┐
+│ (index) │      balance       │      portfolio      │
+├─────────┼────────────────────┼─────────────────────┤
+│   BTC   │ 10.952034999999999 │ '303539.702277950'  │
+│   ETH   │      4.716689      │ '8404.62096221000'  │
+│   XRP   │ 0.7904819999999998 │ '0.400853422200000' │
+└─────────┴────────────────────┴─────────────────────┘
+```
