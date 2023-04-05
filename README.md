@@ -7,6 +7,7 @@ This is a test project from Propine.
 ## Run
 
 Copy .env.example file and paste as .env file, and then input [cryptocompare](https://min-api.cryptocompare.com/) api key in .env file.
+Replace transactions.csv file in storage directory to yours.
 After that, run the app with below command
   
   ```sh
@@ -77,11 +78,11 @@ After getting the exchange rate, get the portfolio of token with total balance o
 ## Result
 The result is like bellow
 ```
-┌─────────┬────────────────────┬─────────────────────┐
-│ (index) │      balance       │      portfolio      │
-├─────────┼────────────────────┼─────────────────────┤
-│   BTC   │ 10.952034999999999 │ '303539.702277950'  │
-│   ETH   │      4.716689      │ '8404.62096221000'  │
-│   XRP   │ 0.7904819999999998 │ '0.400853422200000' │
-└─────────┴────────────────────┴─────────────────────┘
+┌─────────┬───────┬────────────────────┬────────────────────┐
+│ (index) │ token │      balance       │     portfolio      │
+├─────────┼───────┼────────────────────┼────────────────────┤
+│    0    │ 'BTC' │ 1200425.1521679235 │ '33774249758.2811' │
+│    1    │ 'ETH' │ 901704.2831248266  │ '1648892520.29338' │
+│    2    │ 'XRP' │ 903332.9813728357  │ '462416.153164755' │
+└─────────┴───────┴────────────────────┴────────────────────┘
 ```
